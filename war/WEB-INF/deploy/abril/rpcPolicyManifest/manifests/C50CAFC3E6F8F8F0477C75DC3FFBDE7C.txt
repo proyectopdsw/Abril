@@ -1,0 +1,2 @@
+serviceClass: abril.client.GreetingService
+path: 4EFEB45C633632A2C33F67647D5FDB50.gwt.rpc

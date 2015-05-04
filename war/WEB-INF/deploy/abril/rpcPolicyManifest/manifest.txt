@@ -1,0 +1,3 @@
+# Module abril
+# RPC service class, partial path of RPC policy file
+abril.client.GreetingService, 4EFEB45C633632A2C33F67647D5FDB50.gwt.rpc
