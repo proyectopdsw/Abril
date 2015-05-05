@@ -61,14 +61,14 @@
         "body" : "autoTemplate(backendResponse)"
       }
     },
-    "quoteapi.getQuote" : {
+    "quoteapi.remove" : {
       "path" : "quote/{id}",
-      "httpMethod" : "GET",
+      "httpMethod" : "DELETE",
       "authLevel" : "NONE",
       "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
       "audiences" : [ ],
       "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "abril.QuoteServiceAPI.getQuote",
+      "rosyMethod" : "abril.QuoteServiceAPI.removeQuote",
       "request" : {
         "parameters" : {
           "id" : {
@@ -79,7 +79,7 @@
         "body" : "empty"
       },
       "response" : {
-        "body" : "autoTemplate(backendResponse)"
+        "body" : "empty"
       }
     },
     "quoteapi.addUsuarios" : {
@@ -127,14 +127,14 @@
         "body" : "autoTemplate(backendResponse)"
       }
     },
-    "quoteapi.remove" : {
+    "quoteapi.getQuote" : {
       "path" : "quote/{id}",
-      "httpMethod" : "DELETE",
+      "httpMethod" : "GET",
       "authLevel" : "NONE",
       "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
       "audiences" : [ ],
       "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "abril.QuoteServiceAPI.removeQuote",
+      "rosyMethod" : "abril.QuoteServiceAPI.getQuote",
       "request" : {
         "parameters" : {
           "id" : {
@@ -145,7 +145,7 @@
         "body" : "empty"
       },
       "response" : {
-        "body" : "empty"
+        "body" : "autoTemplate(backendResponse)"
       }
     }
   },
@@ -196,10 +196,7 @@
           "$ref" : "QuoteCollection"
         }
       },
-      "abril.QuoteServiceAPI.getQuote" : {
-        "response" : {
-          "$ref" : "Quote"
-        }
+      "abril.QuoteServiceAPI.removeQuote" : {
       },
       "abril.QuoteServiceAPI.addUsuarios" : {
         "response" : {
@@ -214,7 +211,10 @@
           "$ref" : "Quote"
         }
       },
-      "abril.QuoteServiceAPI.removeQuote" : {
+      "abril.QuoteServiceAPI.getQuote" : {
+        "response" : {
+          "$ref" : "Quote"
+        }
       }
     }
   }
