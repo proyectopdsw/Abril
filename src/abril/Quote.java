@@ -2,8 +2,10 @@ package abril;
 
 public class Quote {
 	Integer id;
-	String nombre;
+	String author;
 	String message;
+	String clave;
+	private String nombre;
 	
 	public Quote() {
 	}
@@ -13,11 +15,11 @@ public class Quote {
 		this.id = id;
 	}
  
-	public Quote(Integer id, String nombre, String message) {
+	public Quote(Integer id, String clave, String nombre) {
 		super();
 		this.id = id;
+		this.clave = clave;
 		this.nombre = nombre;
-		this.message = message;
 	}
  
 	public Integer getId() {
@@ -28,12 +30,12 @@ public class Quote {
 		this.id = id;
 	}
  
-	public String getNombre() {
-		return nombre;
+	public String getAuthor() {
+		return author;
 	}
  
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setAuthor(String author) {
+		this.author = author;
 	}
  
 	public String getMessage() {
@@ -71,8 +73,24 @@ public class Quote {
  
 	@Override
 	public String toString() {
-		return "Quote [id=" + id + ", Nombre=" + nombre + ", message="
+		return "Quote [id=" + id + ", author=" + author + ", message="
 				+ message + "]";
+	}
+
+	public String getClave() {
+		return clave;
+	}
+
+	public void setClave(String clave) {
+		this.clave = clave;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
  
 }

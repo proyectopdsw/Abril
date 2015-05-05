@@ -14,26 +14,26 @@ import abril.Quote;
 public class QuoteServiceAPI {
  
 	public static List<Quote> quotes = new ArrayList<Quote>();
+	public static List<Quote> Usuarios = new ArrayList<Quote>();
  
-	@ApiMethod(name="add")
-	public Quote addQuote(@Named("id") Integer id, @Named("nombre") String nombre, @Named("message") String message) throws NotFoundException {
+	@ApiMethod(name="addUsuarios")
+	public Quote addUsuarios(@Named("ID") Integer ID, @Named("clave") String clave, @Named("nombre") String nombre) throws NotFoundException {
 		//Check for already exists
-		int index = quotes.indexOf(new Quote(id));
+		int index = Usuarios.indexOf(new Quote(ID));
 		if (index != -1) throw new NotFoundException("Quote Record already exists");
  
-		Quote q = new Quote(id, nombre, message);
-		quotes.add(q);
+		Quote q = new Quote(ID, clave, nombre);
+		Usuarios.add(q);
 		return q;
 	}
  
-	@ApiMethod(name="update")
+	@ApiMethod(name="cambiar_clave")
 	public Quote updateQuote(Quote q) throws NotFoundException {
-		int index = quotes.indexOf(q);
+		int index = Usuarios.indexOf(q);
 		if (index == -1)
 			throw new NotFoundException("Quote Record does not exist");
-		  Quote currentQuote = quotes.get(index);
-		  currentQuote.setNombre(q.getNombre());
-		  currentQuote.setMessage(q.getMessage());
+		  Quote currentQuote = Usuarios.get(index);
+		  currentQuote.setClave(q.getClave());
 		  return q;
 	}
  
@@ -47,14 +47,14 @@ public class QuoteServiceAPI {
  
 	@ApiMethod(name="list")
 	public List<Quote> getQuotes() {
-		return quotes;
+		return Usuarios;
 	}
  
-	@ApiMethod(name="listByNombre")
-	public List<Quote> getQuotesByNombre(@Named("nombre") String nombre) {
+	@ApiMethod(name="listByAuthor")
+	public List<Quote> getQuotesByAuthor(@Named("author") String author) {
 		List<Quote> results = new ArrayList<Quote>();
 		for (Quote quote : quotes) {
-			if (quote.getNombre().indexOf(nombre) != -1) {
+			if (quote.getAuthor().indexOf(author) != -1) {
 				results.add(quote);
 			}
 		}
