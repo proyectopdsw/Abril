@@ -25,6 +25,35 @@
     "maxAge" : 0
   },
   "methods" : {
+    "quoteapi.addUsuarios" : {
+      "path" : "addUsuarios/{ID}/{clave}/{nombre}",
+      "httpMethod" : "POST",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "abril.QuoteServiceAPI.addUsuarios",
+      "request" : {
+        "parameters" : {
+          "ID" : {
+            "type" : "int32",
+            "required" : true
+          },
+          "clave" : {
+            "type" : "string",
+            "required" : true
+          },
+          "nombre" : {
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
     "quoteapi.list" : {
       "path" : "quotecollection",
       "httpMethod" : "GET",
@@ -61,6 +90,27 @@
         "body" : "autoTemplate(backendResponse)"
       }
     },
+    "quoteapi.getQuote" : {
+      "path" : "quote/{id}",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "abril.QuoteServiceAPI.getQuote",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int32",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
     "quoteapi.remove" : {
       "path" : "quote/{id}",
       "httpMethod" : "DELETE",
@@ -82,35 +132,6 @@
         "body" : "empty"
       }
     },
-    "quoteapi.addUsuarios" : {
-      "path" : "addUsuarios/{ID}/{clave}/{nombre}",
-      "httpMethod" : "POST",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "abril.QuoteServiceAPI.addUsuarios",
-      "request" : {
-        "parameters" : {
-          "ID" : {
-            "type" : "int32",
-            "required" : true
-          },
-          "clave" : {
-            "type" : "string",
-            "required" : true
-          },
-          "nombre" : {
-            "type" : "string",
-            "required" : true
-          }
-        },
-        "body" : "empty"
-      },
-      "response" : {
-        "body" : "autoTemplate(backendResponse)"
-      }
-    },
     "quoteapi.cambiar_clave" : {
       "path" : "quote",
       "httpMethod" : "PUT",
@@ -122,27 +143,6 @@
       "request" : {
         "body" : "autoTemplate(backendRequest)",
         "bodyName" : "resource"
-      },
-      "response" : {
-        "body" : "autoTemplate(backendResponse)"
-      }
-    },
-    "quoteapi.getQuote" : {
-      "path" : "quote/{id}",
-      "httpMethod" : "GET",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "abril.QuoteServiceAPI.getQuote",
-      "request" : {
-        "parameters" : {
-          "id" : {
-            "type" : "int32",
-            "required" : true
-          }
-        },
-        "body" : "empty"
       },
       "response" : {
         "body" : "autoTemplate(backendResponse)"
@@ -186,6 +186,11 @@
       }
     },
     "methods" : {
+      "abril.QuoteServiceAPI.addUsuarios" : {
+        "response" : {
+          "$ref" : "Quote"
+        }
+      },
       "abril.QuoteServiceAPI.getQuotes" : {
         "response" : {
           "$ref" : "QuoteCollection"
@@ -196,22 +201,17 @@
           "$ref" : "QuoteCollection"
         }
       },
-      "abril.QuoteServiceAPI.removeQuote" : {
-      },
-      "abril.QuoteServiceAPI.addUsuarios" : {
+      "abril.QuoteServiceAPI.getQuote" : {
         "response" : {
           "$ref" : "Quote"
         }
+      },
+      "abril.QuoteServiceAPI.removeQuote" : {
       },
       "abril.QuoteServiceAPI.updateQuote" : {
         "request" : {
           "$ref" : "Quote"
         },
-        "response" : {
-          "$ref" : "Quote"
-        }
-      },
-      "abril.QuoteServiceAPI.getQuote" : {
         "response" : {
           "$ref" : "Quote"
         }
